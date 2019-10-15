@@ -1,0 +1,7 @@
+pandas
+numpy
+pycrypto
+psq==0.7.0
+cryptography
+pyjwt
+curlify
