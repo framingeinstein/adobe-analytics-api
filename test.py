@@ -13,7 +13,7 @@ config = {
 }
 
 definition = {
-    "reportsuite":"royalcaribbeanprod",
+    "reportsuite":"report-suite",
     "start_date": "2019-10-01",
     "end_date": "2019-10-01",
     "dimensions":["Day", "variables/evar50"],
