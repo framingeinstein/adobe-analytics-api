@@ -9,7 +9,7 @@ Usage
 from  adobe_analytics import api
 import authentication as auth
 
-
+```python
 
 config = {
     'client_id' : 'CLIENT_ID',
@@ -38,3 +38,4 @@ print(token)
 response = api.report(token['access_token'], config["client_id"], config["company_id"], definition["reportsuite"], definition["dimensions"], definition["metrics"], definition["start_date"], definition["end_date"], segments = definition["segments"])
 
 print(response)
+```
