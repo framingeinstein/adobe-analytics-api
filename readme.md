@@ -6,10 +6,9 @@ You can install this through pip: pip install adobe-analytics-api_20
 
 Usage
 ------------
+```python
 from  adobe_analytics import api
 import authentication as auth
-
-```python
 
 config = {
     'client_id' : 'CLIENT_ID',
