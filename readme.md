@@ -25,7 +25,7 @@ definition = {
     "end_date": "2019-10-01",
     "dimensions":["Day", "variables/evar50"],
     "metrics":[{"name":"metrics/orders"}, {"name": "metrics/revenue"}],
-    "segments":["AeM: E-Mail (ET) Segment (does not exclude PCP) - Royal"]
+    "segments":["Name|id of a Segment"]
 }
 
 jwt_token = auth.getToken(config["org_id"], config["tech_account"], config["client_id"], 3)
