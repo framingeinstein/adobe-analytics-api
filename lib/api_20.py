@@ -1,5 +1,4 @@
 import os
-import flask
 import requests
 from six.moves import urllib
 import json
@@ -100,7 +99,7 @@ def request_calculatedmetrics(access_token, client_id, company_id, rsid=None, li
 		headers = {'Authorization': 'Bearer {}'.format(access_token), 'x-api-key': client_id, 'x-proxy-global-company-id': company_id, 'Content-Type': "application/json"}
 		#data = json.dumps(req))
 	)
-	print(curlify.to_curl(response.request))
+	#print(curlify.to_curl(response.request))
 	return error_check(response.json())['content']
 
 
@@ -251,7 +250,7 @@ def map_metrics(metrics, access_token, client_id, company_id, rsid):
 	#print(cmetric_lookup)
 	cmets = pd.DataFrame(cmetric_lookup)
 
-	print(cmets)
+	#print(cmets)
 	if len(cmets) > 0:
 		print("Merging Calculated Metrics With Standard Metrics")
 		mets = pd.concat([mets[['id','name', 'type']], cmets[['id','name', 'type']]])
@@ -271,11 +270,10 @@ def map_metrics(metrics, access_token, client_id, company_id, rsid):
 	if 'filter' not in mets:
 		mets['filter'] = None
 	mets['rename_to'] = mets['rename_to'].fillna(mets['name'])
-
+	mets.drop_duplicates(subset ="name", keep = False, inplace = True)
 	print(mets)
-
+	print(metrics)
 	if len(mets) > len(metrics):
-
 		raise APIException("Multiple metrics Found with for supplied metrics", payload=mets[['id','name']].to_json(orient='records'))
 	if len(mets) < len(metrics):
 		notfound = [x for x in metrics if x not in mets['id'].tolist() and x not in mets['name'].tolist()]
