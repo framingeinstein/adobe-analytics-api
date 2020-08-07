@@ -5,7 +5,7 @@ with open("readme.md", "r") as fh:
 
 setuptools.setup(
     name="adobe-analytics-api_20",
-    version="0.0.1",
+    version="1.0.0",
     author="Jason Morgan",
     author_email="jason@framingeinstein.com",
     description="Adobe Analytics API 2.0 Library",
